@@ -1,10 +1,17 @@
 # 🏟️ Pinheiro API – Sistema de Gerenciamento Arena Pinheiro
 
+![Python](https://img.shields.io/badge/python-3.8+-blue.svg)
+![FastAPI](https://img.shields.io/badge/FastAPI-0.109+-green.svg)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-12+-blue.svg)
+![License](https://img.shields.io/badge/license-MIT-green.svg)
+
 **API REST completa** para gerenciamento de arena esportiva com autenticação, controle de acesso e operações CRUD completas.
+
+---
 
 ## 📖 Sobre o Projeto
 
-Sistema de gestão para arenas esportivas que permite gerenciar:
+Sistema de gestão para arenas esportivas desenvolvido com **FastAPI** e **PostgreSQL**, que permite gerenciar:
 - **Campos esportivos** e suas disponibilidades
 - **Reservas** de campos por clientes
 - **Comandas** de consumo (mesas e produtos)
@@ -38,6 +45,35 @@ Todos com autenticação obrigatória e validação de permissões:
 - Comandas, Reservas, Compras, Pagamentos
 - Estoque, Movimentações, Itens (comanda/compra)
 - Relacionamentos de pagamentos (comanda/compra/reserva)
+
+## ⚡ Início Rápido
+
+```bash
+# 1. Clone o repositório
+git clone <url-do-repositorio>
+cd pinheiro
+
+# 2. Crie o banco de dados
+psql -U postgres -c "CREATE DATABASE arena_pinheiro;"
+psql -U postgres -d arena_pinheiro -f sql/create_database_complete.sql
+
+# 3. Configure as credenciais no arquivo db.py
+# Edite: user="postgres", password="sua_senha"
+
+# 4. Instale as dependências
+pip install fastapi uvicorn psycopg2-binary python-multipart
+
+# 5. Execute a API
+python main.py
+
+# 6. Acesse http://127.0.0.1:5000/docs
+```
+
+**Credenciais de teste:**
+- Admin: `admin@pinheiro.com` / `admin123`
+- Funcionário: `funcionario@pinheiro.com` / `func123`
+
+---
 
 ## 🚀 Como Executar
 
@@ -94,7 +130,11 @@ psql -U postgres -f sql/create_database_complete.sql
 
 ### 3️⃣ Configurar a Aplicação
 
-1. **Clone ou baixe o projeto**
+1. **Clone ou baixe o projeto:**
+```bash
+git clone <url-do-repositorio>
+cd pinheiro
+```
 
 2. **Configure a conexão** no arquivo `db.py`:
 ```python
@@ -329,7 +369,19 @@ Authorization: Basic funcionario@pinheiro.com:func123
 - ✅ Proteção contra SQL Injection (prepared statements)
 - ✅ Tratamento de erros e exceções
 
-## 🐛 Solução de Problemas
+## � Screenshots
+
+### Documentação Interativa (Swagger UI)
+Acesse `http://127.0.0.1:5000/docs` para testar todos os endpoints:
+
+![Swagger UI](https://via.placeholder.com/800x400/4A90E2/FFFFFF?text=Documentação+Interativa+Swagger+UI)
+
+### Exemplo de Autenticação
+![Auth Example](https://via.placeholder.com/800x200/2ECC71/FFFFFF?text=HTTP+Basic+Authentication)
+
+---
+
+## �🐛 Solução de Problemas
 
 ### Erro: "Não é possível conectar ao banco"
 ```bash
@@ -360,6 +412,26 @@ taskkill /F /IM python.exe
 uvicorn.run(app, host="127.0.0.1", port=8000)
 ```
 
+## � Licença
+
+Este projeto foi desenvolvido para fins educacionais como parte da disciplina de Fundamentos de Banco de Dados.
+
+## 🤝 Contribuindo
+
+Contribuições são bem-vindas! Sinta-se à vontade para:
+
+1. Fazer um Fork do projeto
+2. Criar uma branch para sua feature (`git checkout -b feature/AmazingFeature`)
+3. Commit suas mudanças (`git commit -m 'Add some AmazingFeature'`)
+4. Push para a branch (`git push origin feature/AmazingFeature`)
+5. Abrir um Pull Request
+
+## 📞 Contato
+
+Para dúvidas ou sugestões sobre o projeto, entre em contato através do repositório.
+
+---
+
 ## 👨‍💻 Desenvolvido por
 
 **Disciplina:** Fundamentos de Banco de Dados  
@@ -368,6 +440,16 @@ uvicorn.run(app, host="127.0.0.1", port=8000)
 
 ---
 
+## 🔗 Links Úteis
+
 📚 **Documentação Completa:** http://127.0.0.1:5000/docs  
-🔗 **API Base URL:** http://127.0.0.1:5000/api/#   A P I - P i n h e i r o  
+🔗 **API Base URL:** http://127.0.0.1:5000/api/  
+📖 **Redoc:** http://127.0.0.1:5000/redoc  
+🐘 **PostgreSQL Docs:** https://www.postgresql.org/docs/  
+⚡ **FastAPI Docs:** https://fastapi.tiangolo.com/
+
+---
+
+⭐ Se este projeto foi útil, considere dar uma estrela no repositório!
+ 
  
