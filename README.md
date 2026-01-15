@@ -1,4 +1,4 @@
-# 🏟️ Pinheiro API – Sistema de Gerenciamento Arena Pinheiro
+# Pinheiro API - Sistema de Gerenciamento Arena Pinheiro
 
 ![Python](https://img.shields.io/badge/python-3.8+-blue.svg)
 ![FastAPI](https://img.shields.io/badge/FastAPI-0.109+-green.svg)
@@ -9,9 +9,10 @@
 
 ---
 
-## 📖 Sobre o Projeto
+## Sobre o Projeto
 
 Sistema de gestão para arenas esportivas desenvolvido com **FastAPI** e **PostgreSQL**, que permite gerenciar:
+
 - **Campos esportivos** e suas disponibilidades
 - **Reservas** de campos por clientes
 - **Comandas** de consumo (mesas e produtos)
@@ -19,7 +20,7 @@ Sistema de gestão para arenas esportivas desenvolvido com **FastAPI** e **Postg
 - **Pagamentos** vinculados a comandas, compras e reservas
 - **Usuários** do sistema com dois níveis de acesso
 
-### 🔐 Autenticação e Controle de Acesso
+### Autenticacao e Controle de Acesso
 
 O sistema implementa autenticação HTTP Basic com dois níveis de usuário:
 
@@ -28,9 +29,9 @@ O sistema implementa autenticação HTTP Basic com dois níveis de usuário:
 
 **Todas as operações exigem autenticação.** Requisições sem credenciais retornam `401 Unauthorized`.
 
-## ✨ Funcionalidades Principais
+## Funcionalidades Principais
 
-### 📊 5 Visões SQL Complexas
+### 5 Visoes SQL Complexas
 
 1. **vw_item_comanda_completo** - Itens de comanda com cálculo automático de valores
 2. **vw_item_compra_completo** - Itens de compra com totalizações
@@ -38,7 +39,7 @@ O sistema implementa autenticação HTTP Basic com dois níveis de usuário:
 4. **vw_reservas_detalhe** - Reservas com informações completas
 5. **vw_clientes_publicos** - Dados públicos de clientes
 
-### 🔧 17 Módulos CRUD Completos
+### 17 Modulos CRUD Completos
 
 Todos com autenticação obrigatória e validação de permissões:
 - Usuários, Clientes, Produtos, Campos, Mesas
@@ -46,10 +47,10 @@ Todos com autenticação obrigatória e validação de permissões:
 - Estoque, Movimentações, Itens (comanda/compra)
 - Relacionamentos de pagamentos (comanda/compra/reserva)
 
-## ⚡ Início Rápido
+## Inicio Rapido
 
 ```bash
-# 1. Clone o repositório
+# 1. Clone o repositorio
 git clone <url-do-repositorio>
 cd pinheiro
 
@@ -60,7 +61,7 @@ psql -U postgres -d arena_pinheiro -f sql/create_database_complete.sql
 # 3. Configure as credenciais no arquivo db.py
 # Edite: user="postgres", password="sua_senha"
 
-# 4. Instale as dependências
+# 4. Instale as dependencias
 pip install fastapi uvicorn psycopg2-binary python-multipart
 
 # 5. Execute a API
@@ -75,15 +76,15 @@ python main.py
 
 ---
 
-## 🚀 Como Executar
+## Como Executar
 
-### 1️⃣ Pré-requisitos
+### Prerequisitos
 
 - **Python 3.8+** instalado
 - **PostgreSQL 12+** instalado e rodando
 - **pip** (gerenciador de pacotes Python)
 
-### 2️⃣ Configurar o Banco de Dados
+### Configurar o Banco de Dados
 
 #### Instalar PostgreSQL
 
@@ -128,7 +129,7 @@ Ou execute diretamente:
 psql -U postgres -f sql/create_database_complete.sql
 ```
 
-### 3️⃣ Configurar a Aplicação
+### Configurar a Aplicacao
 
 1. **Clone ou baixe o projeto:**
 ```bash
@@ -153,7 +154,7 @@ conn = psycopg2.connect(
 pip install fastapi uvicorn psycopg2-binary python-multipart
 ```
 
-### 4️⃣ Executar a API
+### Executar a API
 
 ```bash
 cd pinheiro
@@ -165,7 +166,7 @@ A API estará disponível em:
 - **Documentação Interativa:** http://127.0.0.1:5000/docs
 - **Redoc:** http://127.0.0.1:5000/redoc
 
-### 5️⃣ Testar a API
+### Testar a API
 
 #### Credenciais de Teste
 
@@ -204,7 +205,7 @@ Invoke-WebRequest -Uri "http://127.0.0.1:5000/api/clientes/" -Credential $creden
    - **Password:** admin123
 4. Teste qualquer endpoint clicando em **Try it out**
 
-## 📁 Estrutura do Projeto
+## Estrutura do Projeto
 
 ```
 pinheiro/
@@ -218,26 +219,27 @@ pinheiro/
     └── create_database_complete.sql  # Script completo do banco
 ```
 
-## 🔧 Endpoints da API
+## Endpoints da API
 
-### Autenticação
+### Autenticacao
+
 Todos os endpoints exigem **HTTP Basic Authentication** com email/senha.
 
 ### Recursos Principais
 
-| Recurso | Endpoints | Permissão |
+| Recurso | Endpoints | Permissao |
 |---------|-----------|-----------|
-| **Usuários** | `/api/usuarios/` | ⚠️ Apenas Admin |
-| **Clientes** | `/api/clientes/` | ✅ Admin + Funcionário |
-| **Produtos** | `/api/produtos/` | ✅ Admin + Funcionário |
-| **Campos** | `/api/campos/` | ✅ Admin + Funcionário |
-| **Mesas** | `/api/mesas/` | ✅ Admin + Funcionário |
-| **Comandas** | `/api/comandas/` | ✅ Admin + Funcionário |
-| **Reservas** | `/api/reservas/` | ✅ Admin + Funcionário |
-| **Compras** | `/api/compras/` | ✅ Admin + Funcionário |
-| **Pagamentos** | `/api/pagamentos/` | ✅ Admin + Funcionário |
-| **Estoque** | `/api/estoques/` | ✅ Admin + Funcionário |
-| **Views** | `/api/views/*` | ✅ Admin + Funcionário |
+| **Usuários** | `/api/usuarios/` | Apenas Admin |
+| **Clientes** | `/api/clientes/` | Admin + Funcionário |
+| **Produtos** | `/api/produtos/` | Admin + Funcionário |
+| **Campos** | `/api/campos/` | Admin + Funcionário |
+| **Mesas** | `/api/mesas/` | Admin + Funcionário |
+| **Comandas** | `/api/comandas/` | Admin + Funcionário |
+| **Reservas** | `/api/reservas/` | Admin + Funcionário |
+| **Compras** | `/api/compras/` | Admin + Funcionário |
+| **Pagamentos** | `/api/pagamentos/` | Admin + Funcionário |
+| **Estoque** | `/api/estoques/` | Admin + Funcionário |
+| **Views** | `/api/views/*` | Admin + Funcionário |
 
 Cada recurso possui operações CRUD completas:
 - `GET /` - Listar todos
@@ -246,7 +248,7 @@ Cada recurso possui operações CRUD completas:
 - `PUT /{id}` - Atualizar
 - `DELETE /{id}` - Deletar
 
-## 📊 Banco de Dados
+## Banco de Dados
 
 ### Estrutura (16 Tabelas)
 
@@ -307,7 +309,7 @@ SELECT r.id_reserva, r.data, r.quant_horas, r.status,
 FROM reserva r;
 ```
 
-## 🛠️ Tecnologias Utilizadas
+## Tecnologias Utilizadas
 
 - **FastAPI** - Framework web moderno e rápido
 - **PostgreSQL** - Banco de dados relacional
@@ -316,7 +318,7 @@ FROM reserva r;
 - **Uvicorn** - Servidor ASGI de alta performance
 - **HTTP Basic Auth** - Autenticação simples e segura
 
-## 📝 Exemplos de Uso
+## Exemplos de Uso
 
 ### Criar um Cliente (Admin/Funcionário)
 ```bash
@@ -361,27 +363,15 @@ Authorization: Basic funcionario@pinheiro.com:func123
 # "Acesso negado. Apenas administradores podem gerenciar usuários."
 ```
 
-## 🔒 Segurança
+## Seguranca
 
-- ✅ Autenticação obrigatória em todos os endpoints
-- ✅ Controle de acesso baseado em roles (admin/funcionário)
-- ✅ Validação de dados com Pydantic
-- ✅ Proteção contra SQL Injection (prepared statements)
-- ✅ Tratamento de erros e exceções
+- Autenticação obrigatória em todos os endpoints
+- Controle de acesso baseado em roles (admin/funcionário)
+- Validação de dados com Pydantic
+- Proteção contra SQL Injection (prepared statements)
+- Tratamento de erros e exceções
 
-## � Screenshots
-
-### Documentação Interativa (Swagger UI)
-Acesse `http://127.0.0.1:5000/docs` para testar todos os endpoints:
-
-![Swagger UI](https://via.placeholder.com/800x400/4A90E2/FFFFFF?text=Documentação+Interativa+Swagger+UI)
-
-### Exemplo de Autenticação
-![Auth Example](https://via.placeholder.com/800x200/2ECC71/FFFFFF?text=HTTP+Basic+Authentication)
-
----
-
-## �🐛 Solução de Problemas
+## Solucao de Problemas
 
 ### Erro: "Não é possível conectar ao banco"
 ```bash
@@ -412,11 +402,11 @@ taskkill /F /IM python.exe
 uvicorn.run(app, host="127.0.0.1", port=8000)
 ```
 
-## � Licença
+## Licenca
 
 Este projeto foi desenvolvido para fins educacionais como parte da disciplina de Fundamentos de Banco de Dados.
 
-## 🤝 Contribuindo
+## Contribuindo
 
 Contribuições são bem-vindas! Sinta-se à vontade para:
 
@@ -426,13 +416,13 @@ Contribuições são bem-vindas! Sinta-se à vontade para:
 4. Push para a branch (`git push origin feature/AmazingFeature`)
 5. Abrir um Pull Request
 
-## 📞 Contato
+## Contato
 
 Para dúvidas ou sugestões sobre o projeto, entre em contato através do repositório.
 
 ---
 
-## 👨‍💻 Desenvolvido por
+## Desenvolvido por
 
 **Disciplina:** Fundamentos de Banco de Dados  
 **Instituição:** [Sua Instituição]  
@@ -440,16 +430,14 @@ Para dúvidas ou sugestões sobre o projeto, entre em contato através do reposi
 
 ---
 
-## 🔗 Links Úteis
+## Links Uteis
 
-📚 **Documentação Completa:** http://127.0.0.1:5000/docs  
-🔗 **API Base URL:** http://127.0.0.1:5000/api/  
-📖 **Redoc:** http://127.0.0.1:5000/redoc  
-🐘 **PostgreSQL Docs:** https://www.postgresql.org/docs/  
-⚡ **FastAPI Docs:** https://fastapi.tiangolo.com/
+- **Documentação Completa:** http://127.0.0.1:5000/docs
+- **API Base URL:** http://127.0.0.1:5000/api/
+- **Redoc:** http://127.0.0.1:5000/redoc
+- **PostgreSQL Docs:** https://www.postgresql.org/docs/
+- **FastAPI Docs:** https://fastapi.tiangolo.com/
 
 ---
 
-⭐ Se este projeto foi útil, considere dar uma estrela no repositório!
- 
- 
+Se este projeto foi útil, considere dar uma estrela no repositório!
